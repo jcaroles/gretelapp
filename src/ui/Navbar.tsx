@@ -9,7 +9,7 @@ const Navbar = () => {
         <div className={classNames.navBarMargin}>
           <FcAlarmClock />
         </div>
-        <div className={classNames.navBarPadding}>Gretel App</div>
+        <button className={classNames.navBarPadding}>Gretel App</button>
       </div>
     </>
   );
