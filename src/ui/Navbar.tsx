@@ -6,10 +6,10 @@ const Navbar = () => {
   return (
     <>
       <div className={classNames.navBar}>
-        <div className="mt-1.5">
+        <div className={classNames.navBarMargin}>
           <FcAlarmClock />
         </div>
-        <div className="pl-2">Gretel App</div>
+        <div className={classNames.navBarPadding}>Gretel App</div>
       </div>
     </>
   );
