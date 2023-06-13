@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import SingleEvent from "./SingleEvent";
 import Navbar from "./Navbar";
 import { data } from "../models/data";
@@ -27,7 +27,7 @@ const DisplayEvents: React.FC<props> = ({ mockData }) => {
   const [inactiveId, setInactiveId] = useState<Number>(0);
   const [activeData, setActiveData] = useState<Array<data>>(mockData);
 
-  const sortedData = () => {
+  const sortedData = useCallback(() => {
     const sortedActiveData = [...mockData]
       .sort((a, b) => {
         const priorityA = setPriority(a.type);
@@ -38,7 +38,7 @@ const DisplayEvents: React.FC<props> = ({ mockData }) => {
       .filter((data) => data.status === "active");
 
     return sortedActiveData;
-  };
+  }, [mockData]);
 
   const onClickHandler = () => {
     const filteredData = sortedData();
@@ -48,7 +48,7 @@ const DisplayEvents: React.FC<props> = ({ mockData }) => {
   useEffect(() => {
     const data = sortedData();
     setActiveData(data);
-  }, []);
+  }, [sortedData]);
 
   useEffect(() => {
     if (inactiveId !== 0) {
