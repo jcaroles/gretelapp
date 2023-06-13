@@ -81,14 +81,16 @@ const DisplayEvents: React.FC<props> = ({ mockData }) => {
         })}
 
         <div className={classNames.resetButtonContainer}>
-          <button
-            onClick={() => {
-              onClickHandler();
-            }}
-            className={classNames.reset}
-          >
-            Reset Data
-          </button>
+          <div>
+            <button
+              onClick={() => {
+                onClickHandler();
+              }}
+              className={classNames.reset}
+            >
+              Reset Data
+            </button>
+          </div>
         </div>
       </div>
     </>
